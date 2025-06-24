@@ -1,0 +1,66 @@
+HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>FORMS LINK</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <h1>Forms to apply for tournament</h1>
+ <form action="post">
+  <div>
+   <label for="username">Enter your Game ID</label>
+   <input type="text"id="username"name="username"placeholder="Enter your ID" autofocus>
+  </div>
+  <div>
+   <input type="radio" id="male" name="gender" value="male">
+   <label for="male">Male</label>
+   <input type="radio"id="female"name="gender"value="female">
+   <label for="female">Female</label>
+  </div>
+  <div>
+   <label for="your level">Your Game Level</label>
+   <input type="text"id="your level"name="level"value="Game Level" autofocus>
+  </div>
+  <div>
+   <select name="Mode">
+    <option value="SOLO">SOLO</option>
+    <option value="Duo">Duo</option>
+   </select>
+  </div>
+  <h2>For Duo Entry</h2>
+  <div>
+   <label for="Team Name">Team Name</label>
+   <input type="text"id="TeamName"name="Team"value="Team Name"autofocus>
+  </div>
+  <div>
+   <label for="partner">Enter your teamMate ID</label>
+   <input type="text"id="partner"name="TeamMate"value="Teammate ID" autofocus>
+  </div>
+<div>
+ <input type="radio"id="Male"name="gender"value="Male">
+ <label for="geneder">Male</label>
+ <input type="radio"id="female"name="gender"value="Female">
+ <label for="geneder">Female</label>
+</div>
+ </form>
+</body>
+</html>
+
+
+
+
+
+
+css:
+body{
+ background-color: rgb(138, 43, 226);
+}
+h1{
+ color: rgb(15, 17, 136);
+}
+
+JS:
+alert("hello FF lovers");
