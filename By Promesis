@@ -1,0 +1,66 @@
+let wallet = 2000;
+
+const products = [
+  { name: "Phone", price: 1200 },
+  { name: "Charger", price: 300 },
+  { name: "Earphones", price: 500 },
+  { name: "Back Cover", price: 200 },
+  { name: "Cable", price: 100 }
+];
+
+function showProducts() {
+  return new Promise((resolve) => {
+    console.log("Available Products:\n");
+    const productLines = products.map(p => ${p.name} - ₹${p.price});
+    console.log(productLines.join("\n"));
+    resolve();
+  });
+}
+
+function createOrder() {
+  return new Promise((resolve) => {
+    console.log("\nCreating order...");
+    const selectedIndexes = [0, 2, 4];
+    const order = selectedIndexes.map(index => products[index]);
+    console.log("Order created\n");
+    resolve(order);
+  });
+}
+
+function makePayment(order) {
+  return new Promise((resolve, reject) => {
+    const total = order.reduce((sum, item) => sum + item.price, 0);
+    console.log(Total to Pay: ₹${total});
+    if (wallet >= total) {
+      console.log("Payment successful\n");
+      resolve({ order, total });
+    } else {
+      reject("Payment failed: Not enough balance\n");
+    }
+  });
+}
+
+function showSummary(order, total) {
+  return new Promise((resolve) => {
+    console.log("Order Summary:\n");
+    const summaryLines = order.map(item => ${item.name} - ₹${item.price});
+    console.log(summaryLines.join("\n"));
+    console.log(\nTotal: ₹${total}\n);
+    resolve(total);
+  });
+}
+
+function updateWallet(total) {
+  return new Promise((resolve) => {
+    wallet -= total;
+    console.log(Wallet updated. Remaining Balance: ₹${wallet});
+    resolve();
+  });
+}
+
+showProducts()
+  .then(() => createOrder())
+  .then(order => makePayment(order))
+  .then(({ order, total }) => showSummary(order, total).then(() => total))
+  .then(total => updateWallet(total))
+  .catch(err => console.log(err));
